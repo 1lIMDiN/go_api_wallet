@@ -18,26 +18,26 @@
 ### Инструкция по запуску
 
 1. Склонируйте репозиторий:
-     git clone <repository-url>
-     cd wallet-service
+    -  git clone <repository-url>
+    - cd wallet-service
 2. Создайте файл .env на основе config.env:
-     cp config.env .env
+    - cp config.env .env
 3. Запустите сервисы:
-     docker-compose up --build
+    - docker-compose up --build
 
 4. Приложение будет доступно по адресу: http://localhost:8080
 
 ### Получение баланса кошелька
     curl -X GET http://localhost:8080/api/v1/wallets/a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11
 
-### Выполнение операции с кошельком
-# Пополнение 
+# Выполнение операции с кошельком
+### Пополнение 
     curl -X POST -H "Content-Type: application/json" -d '{
       "walletId": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
       "operationType": "DEPOSIT",
       "amount": 1000
     }' http://localhost:8080/api/v1/wallet
-# Снятие
+### Снятие
     curl -X POST -H "Content-Type: application/json" -d '{
       "walletId": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
       "operationType": "WITHDRAW",
@@ -49,6 +49,6 @@
 
 1. Убедитесь, что PostgreSQL запущен и доступен
 2. Создайте тестовую БД:
-     createdb -U wallet_user wallet_test
+    - createdb -U wallet_user wallet_test
 3. Запустите тесты:
-     go test -v ./...
+    - go test -v ./...
